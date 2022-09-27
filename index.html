@@ -45,7 +45,7 @@
             </div>
             <div class="col-md-3">
                 <label for="gender" class="form-label">Gender selection</label>
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" aria-label="Default select example" id="gender">
                     <option value="none" selected>Gender</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -56,7 +56,7 @@
                 <textarea class="form-control" rows="5" id="notes" name="text"></textarea>
             </div>
             <div class="col-md-12">
-                <button type="submit" class="btn btn-outline-secondary">Submit</button>
+                <button type="submit" class="btn btn-outline-secondary" onclick="submitTable()">Submit</button>
             </div>
             <div id="divTable">
                 <table class="table" id="tableData">
@@ -71,25 +71,7 @@
                             <th scope="col">Notes</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
+
                 </table>
             </div>
 
