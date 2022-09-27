@@ -8,7 +8,7 @@ const errorElementFirst = document.getElementById('errorFirst');
 const errorElementLast = document.getElementById('errorLast');
 const errorElementAddress = document.getElementById('errorAddress');
 
-
+// Validation
 form.addEventListener('submit', (e) => {
     let messagesFirst = [];
     let messagesLast = [];
@@ -18,7 +18,7 @@ form.addEventListener('submit', (e) => {
         messagesFirst.push('First Name is required');
     }
 
-    if (firstName.value !== letters) {
+    if (!letters.test(firstName.value.trim())) {
         messagesFirst.push('First Name must be only string without spaces');
     };
 
@@ -32,7 +32,7 @@ form.addEventListener('submit', (e) => {
         messagesLast.push('Last Name is required');
     }
 
-    if (lastName.value !== letters) {
+    if (!letters.test(lastName.value.trim())) {
         messagesLast.push('Last Name must be only string without spaces');
     };
 
@@ -51,3 +51,4 @@ form.addEventListener('submit', (e) => {
         errorElementAddress.innerText = messagesAddress.join(', ')
     }
 });
+

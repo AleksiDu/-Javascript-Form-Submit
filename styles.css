@@ -1,0 +1,9 @@
+#divTable {
+  display: none;
+  width: 100%;
+}
+
+#tableData th:nth-child(6),
+#tableData td:nth-child(6) {
+  display: none;
+}
