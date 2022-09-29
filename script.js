@@ -9,8 +9,7 @@ const letters = /^[A-Za-z]+$/;
 const errorElementFirst = document.getElementById('errorFirst');
 const errorElementLast = document.getElementById('errorLast');
 const errorElementAddress = document.getElementById('errorAddress');
-const rootElement = document.documentElement;
-
+const table = document.getElementById("tableData");
 
 /**
  * Validation
@@ -68,6 +67,7 @@ let dataTable = {
     stringAddress: "",
     stringBirth: "",
     stringGender: "",
+    stringNotes: ""
 };
 
 // increment by one every submit clicks
@@ -83,10 +83,10 @@ function submitTable() {
     dataTable.stringAddress = address.value;
     dataTable.stringBirth = birthday.value;
     dataTable.stringGender = gender.value;
+    dataTable.stringNotes = notes.value;
 
     // insert row
 
-    let table = document.getElementById("tableData");
     let row = table.insertRow(i);
     let number = row.insertCell(0);
     let stringFirstName = row.insertCell(1);
@@ -94,6 +94,7 @@ function submitTable() {
     let stringAddress = row.insertCell(3);
     let stringBirth = row.insertCell(4);
     let stringGender = row.insertCell(5);
+    let stringNotes = row.insertCell(6);
 
     number.innerHTML = i;
     stringFirstName.innerHTML = dataTable.stringFirstName;
@@ -101,8 +102,10 @@ function submitTable() {
     stringAddress.innerHTML = dataTable.stringAddress;
     stringBirth.innerHTML = dataTable.stringBirth;
     stringGender.innerHTML = dataTable.stringGender;
-
+    stringNotes.innerHTML = dataTable.stringNotes;
     i++;
+
+    addRowHandlers();
 };
 
 /**
@@ -129,3 +132,25 @@ function getSavedValue(v) {
     }
     return localStorage.getItem(v);
 }
+
+/**
+ * Clicking on a row
+ */
+
+function addRowHandlers() {
+    let rows = table.getElementsByTagName("tr");
+    for (i = 0; i < rows.length; i++) {
+        let currentRow = table.rows[i];
+        let createClickHandler =
+            function (row) {
+                return function () {
+                    let cell = row.getElementsByTagName("td")[6];
+                    let id = cell.innerHTML;
+                    alert("note: " + id);
+                };
+            };
+
+        currentRow.onclick = createClickHandler(currentRow);
+    }
+};
+
