@@ -3,7 +3,7 @@
   width: 100%;
 }
 
-#tableData th:nth-child(6),
-#tableData td:nth-child(6) {
+#tableData th:nth-child(5),
+#tableData td:nth-child(5) {
   display: none;
 }

@@ -95,24 +95,24 @@ function submitTable() {
     let stringAddress = row.insertCell(3);
     let stringBirth = row.insertCell(4);
     let stringGender = row.insertCell(5);
-    let stringNotes = row.insertCell(6);
 
+    //  let stringNotes = row.insertCell(5);
     number.innerHTML = i;
     stringFirstName.innerHTML = dataTable.stringFirstName;
     stringLastName.innerHTML = dataTable.stringLastName;
     stringAddress.innerHTML = dataTable.stringAddress;
     stringBirth.innerHTML = dataTable.stringBirth;
     stringGender.innerHTML = dataTable.stringGender;
-    stringNotes.innerHTML = dataTable.stringNotes;
+    // stringNotes.innerHTML = dataTable.stringNotes;
 
     i++;
 
-    // localStorage.setItem("firstName", dataTable.stringFirstName);
-    // localStorage.setItem("lastName", dataTable.stringLastName);
-    // localStorage.setItem("address", dataTable.stringAddress);
-    // localStorage.setItem("birthday", dataTable.stringBirth);
-    // localStorage.setItem("gender", dataTable.stringGender);
-    // localStorage.setItem("notes", dataTable.stringNotes);
-    // localStorage.setItem("display", "block");
+    localStorage.setItem("firstName", dataTable.stringFirstName);
+    localStorage.setItem("lastName", dataTable.stringLastName);
+    localStorage.setItem("address", dataTable.stringAddress);
+    localStorage.setItem("birthday", dataTable.stringBirth);
+    localStorage.setItem("gender", dataTable.stringGender);
+    localStorage.setItem("notes", dataTable.stringNotes);
+    localStorage.setItem("display", "block");
 
 };
