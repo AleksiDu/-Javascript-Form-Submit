@@ -86,7 +86,6 @@ function submitTable() {
     dataTable.stringNotes = notes.value;
 
     // insert row
-
     let row = table.insertRow(i);
     let number = row.insertCell(0);
     let stringFirstName = row.insertCell(1);
@@ -94,7 +93,8 @@ function submitTable() {
     let stringAddress = row.insertCell(3);
     let stringBirth = row.insertCell(4);
     let stringGender = row.insertCell(5);
-    let stringNotes = row.insertCell(6);
+    let deleteBtn = row.insertCell(6);
+    let stringNotes = row.insertCell(7);
 
     number.innerHTML = i;
     stringFirstName.innerHTML = dataTable.stringFirstName;
@@ -103,9 +103,11 @@ function submitTable() {
     stringBirth.innerHTML = dataTable.stringBirth;
     stringGender.innerHTML = dataTable.stringGender;
     stringNotes.innerHTML = dataTable.stringNotes;
+    deleteBtn.innerHTML = `<button type="button" class="btn btn-outline-secondary btn-sm" id="deleteBtn">delete</button>`
     i++;
 
     addRowHandlers();
+
 };
 
 /**
@@ -144,13 +146,26 @@ function addRowHandlers() {
         let createClickHandler =
             function (row) {
                 return function () {
-                    let cell = row.getElementsByTagName("td")[6];
+                    let cell = row.getElementsByTagName("td")[7];
                     let id = cell.innerHTML;
                     alert("note: " + id);
                 };
             };
-
         currentRow.onclick = createClickHandler(currentRow);
     }
 };
+
+/**
+ * Delete btn
+ */
+function onDeleteRow(e) {
+    if (!e.target.classList.contains('btn-sm')) {
+        return;
+    }
+    const btn = e.target;
+    btn.closest('tr').remove();
+    i--;
+}
+table.addEventListener('click', onDeleteRow);
+
 
