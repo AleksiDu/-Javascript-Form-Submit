@@ -167,5 +167,3 @@ function onDeleteRow(e) {
     i--;
 }
 table.addEventListener('click', onDeleteRow);
-
-
