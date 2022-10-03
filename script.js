@@ -85,6 +85,12 @@ function submitTable() {
     dataTable.stringGender = gender.value;
     dataTable.stringNotes = notes.value;
 
+    if (firstName.value === '' || firstName.value == null) return;
+    if (!letters.test(firstName.value.trim())) return;
+    if ((lastName.value === '' || lastName.value == null)) return;
+    if (!letters.test(lastName.value.trim())) return;
+    if (address.value === '' || address.value == null) return;
+
     // insert row
     let row = table.insertRow(i);
     let number = row.insertCell(0);
